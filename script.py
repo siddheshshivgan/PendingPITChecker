@@ -303,7 +303,7 @@ for acc in accounts:
         # Add to all pending transactions
         all_pending_transactions.extend(pending_txns)
     else:
-        print(f"\n✓ No pending transactions for {acc['name']}")
+        print(f"\nNo pending transactions for {acc['name']}")
     
 
     
