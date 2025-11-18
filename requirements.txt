@@ -1,0 +1,10 @@
+pandas
+Pillow
+pytesseract
+selenium
+openpyxl
+xlrd
+webdriver_manager
+beautifulsoup4
+
+
