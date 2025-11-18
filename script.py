@@ -274,6 +274,9 @@ for acc in accounts:
     if 'popupCloseButton' in driver.page_source:
         WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.CLASS_NAME, 'popupCloseButton'))).click()
 
+    
+    time.sleep(2)
+    WebDriverWait(driver, 5).until(EC.presence_of_element_located((By.XPATH, '//div[@onclick="javascript:closeDiwaliSIPPopup();"]'))).click()
     WebDriverWait(driver, 5).until(EC.presence_of_element_located((By.XPATH, '//a[text()="Stock Exchange"]'))).click()
     WebDriverWait(driver, 5).until(EC.presence_of_element_located((By.XPATH, '//b[text()="Transaction Authorization Report"]'))).click()
     WebDriverWait(driver, 3).until(EC.presence_of_element_located((By.NAME, 'apply'))).click()
