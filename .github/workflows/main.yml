@@ -1,0 +1,46 @@
+name: Birthday Mailer Script
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '30 12 * * *'  # Every Day at 6 PM IST
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    env: 
+        EMAIL_ID: ${{ secrets.EMAIL_ID }}
+        SID_EMAIL_ID: ${{ secrets.SID_EMAIL_ID }}
+        RAJAN_EMAIL_ID: ${{ secrets.RAJAN_EMAIL_ID }}
+        PASSWORD: ${{ secrets.PASSWORD }}
+        PARTNER_DESK: ${{ secrets.PARTNER_DESK }}
+        SID_ID: ${{ secrets.SID_ID }}
+        SID_PASSWORD: ${{ secrets.SID_PASSWORD }}
+        RAJAN_ID: ${{ secrets.RAJAN_ID }}
+        RAJAN_PASSWORD: ${{ secrets.RAJAN_PASSWORD }}
+        RESHMA_ID: ${{ secrets.RESHMA_ID }}
+        RESHMA_PASSWORD: ${{ secrets.RESHMA_PASSWORD }}
+    
+    steps:
+    - uses: actions/checkout@v2
+        
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.x'
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install setuptools wheel
+        
+    - name: Install Tesseract OCR
+      run: |
+        choco install tesseract
+        
+    - name: Install Python dependencies
+      run: |
+        python -m pip install -r requirements.txt
+          
+    - name: Run script
+      run: python script.py
