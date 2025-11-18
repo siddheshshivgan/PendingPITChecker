@@ -1,4 +1,4 @@
-name: Birthday Mailer Script
+name: Pending PIT Checker Script
 
 on:
   workflow_dispatch:
