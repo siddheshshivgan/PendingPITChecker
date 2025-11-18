@@ -85,7 +85,7 @@ def format_pending_email(all_pending_transactions):
         </style>
     </head>
     <body>
-        <h2>⚠️ Pending Transactions Alert - """ + datetime.now().strftime('%d-%m-%Y') + """</h2>
+        <h2> Pending Transactions Alert - """ + datetime.now().strftime('%d-%m-%Y') + """</h2>
         <div class="summary">
             <strong>Total Pending Transactions: """ + str(len(all_pending_transactions)) + """</strong>
         </div>
@@ -320,19 +320,19 @@ if all_pending_transactions:
     try:
         send_email(
             to_address=recipients,
-            subject=f"⚠️ Pending Transactions Alert - {datetime.now().strftime('%d-%m-%Y')}",
+            subject=f"Pending Transactions Alert - {datetime.now().strftime('%d-%m-%Y')}",
             body=email_body
         )
-        print(f"\n✓ Email alert sent successfully to {recipients}")
+        print(f"\n Email alert sent successfully to {recipients}")
     except Exception as e:
-        print(f"\n✗ Failed to send email: {str(e)}")
+        print(f"\n Failed to send email: {str(e)}")
     
     print(f"\n{'='*80}")
     print(f"TOTAL PENDING TRANSACTIONS: {len(all_pending_transactions)}")
     print(f"{'='*80}")
 else:
     print(f"\n{'='*80}")
-    print("✓ NO PENDING TRANSACTIONS FOUND FOR TODAY")
+    print("NO PENDING TRANSACTIONS FOUND FOR TODAY")
     print(f"{'='*80}")
 
 driver.quit()
